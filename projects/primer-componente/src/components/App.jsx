@@ -1,18 +1,13 @@
+import "../styles/App.css"
+import { TwitterFollowCard } from "./TwitterFollowCard";
 export function App() {
     return(
-        <article style={{"display": "flex"}}>
-            <header>
-                <img src="https://unavatar.io/midudev" alt="midudev avatar" />
-                <div>
-                    <strong>Midudev</strong>
-                    <span>@midudev</span>
-                </div>
-            </header>
-            <aside>
-                <button>
-                    Follow
-                </button>
-            </aside>
-        </article>
+        <section>
+            <TwitterFollowCard name="Franck Cai" userName="Zuko" />
+            <TwitterFollowCard name="Miguel Angel Duran" userName="midudev" />
+            <TwitterFollowCard name="Naruto Uzumaki Namikaze" userName="senlou" />
+            <TwitterFollowCard name="Don Pepito" userName="steve" />
+        </section>
+       
     );
 }
