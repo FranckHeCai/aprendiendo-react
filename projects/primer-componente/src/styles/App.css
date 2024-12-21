@@ -1,29 +1,29 @@
-article{
+.tw-followCard{
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: .8rem;
 }
-header{
+.tw-followCard-user{
     flex: 1;
     display: flex;
     align-items: center;
     gap: .6rem;
 }
-article header img{
+.tw-followCard-avatar{
     width: 48px;
     height: 48px;
     border-radius: 50px;
 }
-article header div{
+.tw-followCardInfo{
     display: flex;
     flex-direction: column;
 }
-article div span{
+.tw-followCard-userName{
     font-size: .8rem;
     opacity: .6;
 }
-article aside button{
+.tw-followCard-button{
     border: none;
     padding: 8px 16px;
     border-radius: 50px;
@@ -31,8 +31,38 @@ article aside button{
     font-size: .9rem;
     font-weight: bold;
 }
-section{
+.tw-followCard-button:hover{
+    cursor: pointer;
+    opacity: .6;
+}
+.tw-followCard-list{
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+.tw-followCard-button.is-following{
+    border: 1px solid #fff;
+    background-color: #222;
+    color: #fff;
+    width: 130px;
+}
+.tw-followCard-button.is-following:hover{
+    opacity: .8;
+    border: 1px solid #ff2727;
+    color: #ff2727;
+    background-color: #222;
+}
+.tw-followCard-button-stopFollow{
+    display: none;
+}
+.tw-followCard-button.tw-followCard-button-text{
+    display: block;
+}
+
+.tw-followCard-button.is-following:hover .tw-followCard-button-stopFollow{
+    display: block;
+}
+
+.tw-followCard-button.is-following:hover .tw-followCard-button-text{
+    display: none;
 }
