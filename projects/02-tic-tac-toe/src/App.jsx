@@ -5,7 +5,7 @@ import { Board } from "./components/board"
 import { TURNS } from "./constants"
 import { WinnerModal } from "./components/WinnerModal"
 import { checkWinner, checkEndGame } from "./logic/board"
-import { saveGame, resetGame } from "./logic/storage"
+import { saveGame, resetStorageGame } from "./logic/storage"
 
 function App() {
     const [board, setBoard] = useState(() => {
@@ -42,7 +42,7 @@ function App() {
     setTurn(TURNS.X)
     setBoard(Array(9).fill(null))
     setWinner(null)
-    resetGame()
+    resetStorageGame()
   }
 
   return (
