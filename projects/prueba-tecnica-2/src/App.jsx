@@ -2,8 +2,8 @@ import './App.css'
 import Movies from './components/Movies'
 import { useMovies } from './hooks/useMovies'
 //import { useSearch } from './hooks/useSearch'
-import { useState, useEffect, useRef } from "react"
-
+import { useState, useEffect, useRef, useCallback } from "react"
+import debounce from 'just-debounce-it'
 
 
 function useSearch () {
@@ -34,17 +34,29 @@ function useSearch () {
 }
 
 function App () {
- 
+  const [sort, setSort] = useState(false)
   const {search, updateSearch, error} = useSearch()
-  const {movies, getMovies} = useMovies({search})
+  const {movies, getMovies, loading} = useMovies({ search, sort })
+  
+  const debouncedMovies = useCallback(
+    debounce(search => {
+    getMovies({search})
+    }, 500)
+  ,[getMovies])  
 
   const handleSubmit = (e) =>{
     e.preventDefault()
-    getMovies()
+    getMovies({search})
   }
 
   const handleChange = (e) =>{
-    updateSearch(e.target.value)
+    const newSearch = e.target.value
+    updateSearch(newSearch)
+    debouncedMovies(newSearch)
+  }
+
+  const handleSort = () =>{
+    setSort(!sort)
   }
 
   return (
@@ -54,6 +66,9 @@ function App () {
         <form className='form' onSubmit={handleSubmit}>
         <label>
           <input value={search} onChange={handleChange} name='movie-input' type="text" placeholder="Avengers, Spiderman, Thor..." />
+          <label style={{display: 'block'}} >Sort Movies by title 
+            <input  type='checkbox' onChange={handleSort}/>
+          </label>
           <button type='submit'>Search</button>
         </label>
         </form>
@@ -61,7 +76,12 @@ function App () {
       </header>
     
       <main>
-        <Movies movies={movies} />
+        {
+          loading 
+          ? <p>Loading...</p> 
+          : <Movies movies={movies} />
+        }
+        
       </main>
     </div>
   )
