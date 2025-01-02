@@ -35,7 +35,7 @@ export function Filters () {
             <div>
                 <label htmlFor="category">Categories</label>
                     <select id="category" onChange={handleChangeCategory}>
-                        <option value="all" selected >All</option>
+                        <option defaultValue="all">All</option>
                         <option value="laptops">Laptops</option>
                         <option value="smartphones">Cellphones</option>
                     </select>

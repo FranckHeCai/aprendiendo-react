@@ -4,7 +4,9 @@ import { Footer} from "./components/Footer.jsx"
 import { products as InitialProducts} from './mocks/products.json'
 import { useState } from "react"
 import { useFilters } from "./hooks/useFilters.jsx"
+import { CartProvider } from "./context/cart.jsx"
 import './App.css'
+import { Cart } from "./components/Cart.jsx"
 
 
 
@@ -15,11 +17,12 @@ function App() {
   const filteredProducts = filterProducts(products)
 
   return (
-    <>
+    <CartProvider> 
       <Header />
+      <Cart />
       <Products products={filteredProducts} />
       <Footer />
-    </>
+    </CartProvider>
   )
 }
 
