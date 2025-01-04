@@ -19,8 +19,16 @@
   
   .cart li {
     border-bottom: 1px solid #444;
-    padding-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    padding: 16px 0;
     list-style: none;
+  }
+
+  .cart li:first-child {
+    padding-top: 0;
   }
   
   .cart footer {
@@ -66,4 +74,13 @@
 
   .clear-button{
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    font-size: 12px
+  }
+
+  .no-items{
+    text-align: center;
   }

@@ -1,12 +1,12 @@
 import { useId } from "react";
 import  computer  from '../img/computer.jpg'
-import { ClearCartIcon, RemoveFromCartIcon, CartIcon } from "./Icons";
+import { ClearCartIcon, CartIcon } from "./Icons";
 import "./Cart.css"
 import { useCart } from "../hooks/useCart";
 
 export function Cart () {
     const cartCheckBoxId = useId()
-    const { clearCart, cart, addToCart, restToCart } = useCart()
+    const { clearCart, cart, addToCart, restToCart, removeFromCart } = useCart()
     return (
         <>
             <label className="cart-button" htmlFor={cartCheckBoxId}>
@@ -16,6 +16,9 @@ export function Cart () {
             <input id={cartCheckBoxId} type="checkbox" hidden />
 
             <aside className="cart">
+                { cart.length===0 && 
+                    <p className="no-items">no items in cart</p>
+                }
                 <ul>
                     {
                         cart.map(product => (
@@ -32,6 +35,10 @@ export function Cart () {
                                     </small>
                                     <button onClick={() => {addToCart(product)}}>+</button>
                                 </footer>
+                                <button className="clear-button" onClick={()=>{removeFromCart(product)}} >
+                                    <ClearCartIcon />
+                                    Remove from cart
+                                </button>
                             </li>
                         ))
                     }
@@ -39,9 +46,10 @@ export function Cart () {
 
                     
                 </ul>
-                {cart.length>0 && 
+                {cart.length>1 && 
                     <button className="clear-button" onClick={clearCart} >
                         <ClearCartIcon />
+                        Clear Cart
                     </button>
                 }        
                 
