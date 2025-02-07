@@ -11,7 +11,7 @@ const Timer = () => {
       interval = setInterval(() => {
         if (seconds === 0) {
           if (minutes > 0) {
-            setMinutes(minutes - 1);
+            setMinutes(prev => prev -1);
             setSeconds(59);
           }
         } else {
