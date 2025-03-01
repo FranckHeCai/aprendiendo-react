@@ -36,7 +36,7 @@ function App() {
   return (
     <div>
       {/* <Header /> */}
-      <main className='p-2 sm:p-5'>
+      <main className=''>
         {/* <BrowserRouter>
           <Routes>
             <Route index element={<Read patients={patients} />}/>
