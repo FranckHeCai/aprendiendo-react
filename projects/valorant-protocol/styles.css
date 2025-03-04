@@ -2,3 +2,24 @@
 *{
   box-sizing: border-box;
 }
+/* Style the scrollbar */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+/* Style the track (background) */
+::-webkit-scrollbar-track {
+  background: #262626; /* Same as the body background */
+}
+
+/* Style the thumb (scroll handle) */
+::-webkit-scrollbar-thumb {
+  background-color: #ef4444; /* Red color like the title */
+  border-radius: 10px; /* Rounded corners */ /* Padding around the thumb */
+}
+
+/* For Firefox */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #ef4444 #262626;
+}
