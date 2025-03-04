@@ -66,14 +66,16 @@ const Home = () => {
           <form 
             onSubmit={(e) => {
               e.preventDefault()
-              updateItem(userId, taskId.id, ({...taskId,  name: e.target.updateTask.value }))
+              updateItem(userId, taskId.id, taskId)
               setShowPop(false)
             }}
 
             className="flex flex-col gap-2"
           >
             <label htmlFor="updateTask">New Task Name</label>
-            <input className="px-3 py-1 border-2 border-blue-300 rounded" type="text" id="updateTask" />
+            <input className="px-3 py-1 border-2 border-blue-300 rounded" onChange={(event)=>{
+              setTaskId(prev => ({...prev, name : event.target.value}))
+            }} value={taskId.name} type="text" id="updateTask" />
             <button className="py-1 px-3 bg-blue-400 cursor-pointer rounded-md text-white">Confirm</button>
           </form>
         </PopupScreen>
