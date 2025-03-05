@@ -1,35 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './services/firebase';
+import { useState, useEffect } from 'react'
+import { useUserContext } from './context/UserProvider'
+import Login from './components/Login';
+import Home from './components/Home';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const {user, setUser} = useUserContext()
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  useEffect(() => {
+      onAuthStateChanged(auth, user => {
+          if (user) {
+              console.log('user', user, ' userId:', user.uid);
+              setUser(user);
+          } else {
+              console.log("No user logged");
+              setUser(null);
+          }
+      });
+  }, []);
+
+  return user ? <Home/> : <Login/>
 }
 
 export default App
