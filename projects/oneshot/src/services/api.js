@@ -17,9 +17,9 @@ export const createMessage = async(obj, idUser) => {
 }
 
 // UPDATE
-export const updateItem = async (id, taskId, obj) => {
+export const updateProfile = async (id, obj) => {
     // const docRef = doc(db, collectionName, id);
-    const docRef = doc(db, collectionName, id, "tasks", taskId);
+    const docRef = doc(db, collectionName, id);
     await updateDoc(docRef, obj)
 }
 
