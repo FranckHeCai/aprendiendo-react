@@ -12,7 +12,7 @@ const useAgents = () => {
     };
 
     getAgents();
-  }, [setAgents]);
+  }, []);
 
   return {agents, setAgents}
 };
