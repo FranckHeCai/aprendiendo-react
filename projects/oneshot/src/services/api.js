@@ -2,6 +2,15 @@ import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signO
 
 const collectionName = 'oneshot';
 
+export const onMessageUpdated = (userId, callback) =>{
+    const colRef = collection(db, collectionName, userId, "messages")
+    onSnapshot(colRef, (snapshot) => {
+       const messages = getArrayFromCollection(snapshot)
+       callback(messages)
+    });
+}
+    
+
 export const getMessageByUserId = async (userId) => {
     const colRef = collection(db, collectionName, userId, 'messages');
     const result = await getDocs(colRef);
