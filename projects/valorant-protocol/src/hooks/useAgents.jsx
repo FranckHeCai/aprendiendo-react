@@ -5,12 +5,12 @@ import fetchAgents from "../services/fetchAgents";
 const useAgents = () => {
   const { agents ,setAgents } = useAgentContext();
 
-  useEffect(() => {
-    const getAgents = async () => {
-      const fetchedAgents = await fetchAgents();
-      setAgents(fetchedAgents);
-    };
+  const getAgents = async () => {
+    const fetchedAgents = await fetchAgents();
+    setAgents(fetchedAgents);
+  };
 
+  useEffect(() => {
     getAgents();
   }, []);
 

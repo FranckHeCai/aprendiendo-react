@@ -3,7 +3,7 @@ import { useAgentContext } from "../context/AgentsContext";
 import useAgents from "./useAgents";
 
 const useFilter = () => {
-  const {role, setRole, setAgents} = useAgentContext()
+  const {role, setRole} = useAgentContext()
   const {agents} = useAgents()
   
 

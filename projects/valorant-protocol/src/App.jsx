@@ -4,18 +4,24 @@ import Filter from './components/Filter'
 import { useAgentContext } from './context/AgentsContext'
 import { useState } from 'react'
 import useFilter from './hooks/useFilter'
+import Home from './components/Home'
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import AgentDetail from './components/Agents/AgentDetail'
+import ErrorPage from './components/ErrorPage'
 
 function App() {
-  
-  const {filterAgents} = useFilter()
-  const filteredAgents = filterAgents()
-  
 
   return (
-    <main className='pt-25 px-2 sm:px-10 md:px-25 flex flex-col gap-5'>
+    <main className='pt-25 px-2 sm:px-10 md:px-25'>
       <Header />
-      <Filter />
-      <AgentsList agents={filteredAgents} />
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path='/agent/:agentId' element={<AgentDetail />} />
+          <Route path='*' element={<ErrorPage />} />
+        </Routes>
+      </BrowserRouter>
+      
     </main>
   )
 }
