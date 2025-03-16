@@ -12,7 +12,7 @@ import ErrorPage from './components/ErrorPage'
 function App() {
 
   return (
-    <main className='pt-25 px-2 sm:px-10 md:px-25'>
+    <main className='pt-25 px-2 pb-5 sm:px-10 md:px-25'>
       <Header />
       <BrowserRouter>
         <Routes>
