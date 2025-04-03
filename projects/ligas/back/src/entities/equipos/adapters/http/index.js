@@ -21,6 +21,14 @@ router.get(
     res.send(data);
   })
 );
+router.get(
+  "/:teamId",
+  asyncHandler(async (req, res) => {
+    const { teamId } = req.params
+    const data = await Controller.getById(teamId);
+    res.send(data);
+  })
+);
 
 router.post(
   "/",
