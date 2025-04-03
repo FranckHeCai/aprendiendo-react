@@ -21,6 +21,16 @@ router.get(
     res.send(data);
   })
 );
+
+router.get(
+  "/:teamId",
+  asyncHandler(async (req, res) => {
+    const { teamId } = req.params
+    const data = await Controller.get({equipo_cod : teamId});
+    res.send(data);
+  })
+);
+
 router.get(
   "/:playerId",
   asyncHandler(async (req, res) => {
@@ -29,6 +39,7 @@ router.get(
     res.send(data);
   })
 );
+
 
 router.post(
   "/",
