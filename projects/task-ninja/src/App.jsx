@@ -35,22 +35,8 @@ function App() {
 
   return (
     <div>
-      {/* <Header /> */}
+
       <main className=''>
-        {/* <BrowserRouter>
-          <Routes>
-            <Route index element={<Read patients={patients} />}/>
-            <Route path='/create' element={<Create />} />
-            <Route path='*' element={<ErrorPage />} />
-            <Route path='/patient/:id' element={<DeleteUpdate />}/>
-          </Routes>
-        </BrowserRouter> */}
-        {/* <BrowserRouter>
-          <Routes>
-            <Route index element={<Home />}/>
-            <Route path='*' element={<ErrorPage />} />
-          </Routes>
-        </BrowserRouter> */}
         {user ? <Home/> : <Login/>}
       </main>
     </div>
