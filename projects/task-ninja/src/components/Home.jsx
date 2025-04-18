@@ -43,11 +43,11 @@ const Home = () => {
   }
 
   return (
-    <div className="flex flex-col container m-auto gap-5 p-2 sm:p-5">
-      <div className="flex justify-between items-center gap-3">
-        <img className="max-w-20" src="/task-ninja-icon.png" alt="task ninja logo" />
-        <h2 className="text-4xl text-center font-bold text-sky-800">Task Ninja</h2>
-        <button className=" py-2 px-4 bg-sky-700 cursor-pointer rounded-md text-white" onClick={logout}>Log Out</button>
+    <div className="flex flex-col container m-auto gap-5 py-2 sm:p-5">
+      <div className="flex justify-between items-center gap-3 px-5">
+        <img className="w-15 sm:w-20" src="/task-ninja-icon.png" alt="task ninja logo" />
+        <h2 className=" sm:text-4xl text-center font-bold text-sky-800">Task Ninja</h2>
+        <button className="text-sm sm:text-base py-1 px-3 sm:py-2 sm:px-4 bg-sky-700 cursor-pointer rounded-md text-white" onClick={logout}>Log Out</button>
       </div>
       <div className="">
         {tasks.length === 0
@@ -55,14 +55,6 @@ const Home = () => {
           : (<TaskList tasks={tasks} setShowPop={setShowPop} showPop={showPop} setTaskId={setTaskId}/>)
         }
       </div>
-      {/* <form onSubmit={(e)=> {
-        e.preventDefault()
-        addTask()
-      }} className="flex flex-col gap-2 border-t-2 border-sky-700 pt-2">
-        <input onChange={handleOnChange} className="px-3 py-1 bg-slate-100 border-2 border-sky-700 rounded" id="addTask" type="text" value={currentTask} />
-        <button className="py-1 px-3 bg-sky-700 cursor-pointer rounded-md text-white">Add Task</button>
-      </form> */}
-      
       
     {
         showPop && 

@@ -12,7 +12,7 @@ const TaskList = ({tasks , setShowPop, showPop, setTaskId}) => {
       {
         tasks.map(task => {
           return (
-            <div className="flex flex-col justify-center items-center gap-5 bg-slate-50 rounded-lg py-5 px-3 font-medium" key={task.id}>
+            <div className="flex flex-col justify-center items-center gap-5 bg-slate-50 rounded-lg py-6 sm:py-10 px-3 font-medium" key={task.id}>
               <p>{task.name}</p>
               <div className='flex gap-2'>
                       <button onClick={()=>{
@@ -32,7 +32,7 @@ const TaskList = ({tasks , setShowPop, showPop, setTaskId}) => {
         <form onSubmit={(e)=> {
         e.preventDefault()
         addTask()
-      }} className="flex flex-col gap-2 border-t-2 border-sky-700 pt-2">
+      }} className="w-full flex flex-col gap-2 border-t-2 border-sky-700 pt-2">
         <input onChange={(event) => {
           setCurrentTask(event.target.value)
         }} className="px-3 py-1 bg-slate-100 border-2 border-sky-700 rounded" id="addTask" type="text" value={currentTask} />

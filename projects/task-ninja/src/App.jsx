@@ -1,18 +1,10 @@
-import { useEffect, useState } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Header from './components/Header'
-import Read from './components/Read'
-import Create from './components/Create'
-import ErrorPage from './components/ErrorPage'
-import {getItems} from './services/api'
-import DeleteUpdate from './components/DeleteUpdate'
+import { useEffect } from 'react'
 import Login from './components/Login'
 import Home from './components/Home'
 import { useUserContext } from './services/UserProvider'
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './services/firebase'
 function App() {
-  const [patients, setPatients] = useState([])
   const  {user, setUser}  = useUserContext()
   // useEffect(() => {
   //   getItems()
